@@ -62,7 +62,7 @@ mentorRouter.put("/assign-students/:id", async (req, res) => {
         { $addToSet: { studentsId: { $each: body.studentsId } } }
       );
       await assignMentorToStudent(body.studentsId, id);
-      res.send({ id, body });
+      res.send({ msg: "Students assigned successfully" });
     } catch (error) {
       console.log(error);
       res.status(500).send({ msg: "Something went wrong" });
